@@ -28,6 +28,9 @@ func TestSearchDefaultsToJSON1AndUnwrapsData(t *testing.T) {
 		if got := r.Form.Get("q"); got != "car" {
 			t.Fatalf("expected q=car, got %q", got)
 		}
+		if got := r.Header.Get("Origin"); got != "sdk_golang" {
+			t.Fatalf("expected Origin=sdk_golang, got %q", got)
+		}
 		w.Header().Set("Content-Type", "application/json")
 		_, _ = io.WriteString(w, `{"code":0,"task_id":"task-1","data":{"search_metadata":{"status":"Success"}}}`)
 	}))

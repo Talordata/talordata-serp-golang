@@ -140,6 +140,7 @@ func (c *Client) request(method, path string, params map[string]interface{}) (st
 	req.Header.Set("Authorization", "Bearer "+token)
 	req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
 	req.Header.Set("Accept", "application/json, text/html;q=0.9, */*;q=0.8")
+	req.Header.Set("Origin", "sdk_golang")
 	req.Header.Set("User-Agent", defaultUserAgent)
 
 	httpClient := c.HTTPClient

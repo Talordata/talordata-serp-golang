@@ -19,5 +19,9 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(html[:1000])
+	limit := 1000
+	if len(html) < limit {
+		limit = len(html)
+	}
+	fmt.Println(html[:limit])
 }
